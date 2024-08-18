@@ -8,8 +8,8 @@ namespace Poker.ConsoleApp.Classes
         public Suits Suit { get; set; }
         public Card(int value, Suits suit)
         {
-            Value = value;
-            Suit = suit;
+            this.Value = value;
+            this.Suit = suit;
         }
 
         public string NamedValue()

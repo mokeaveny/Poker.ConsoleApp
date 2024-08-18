@@ -4,7 +4,7 @@ namespace Poker.ConsoleApp.Classes
 {
     public class Deck : IDeck
     {
-        List<Card> Cards = new List<Card>();
+        private List<Card> Cards = new List<Card>();
 
         public void Fill()
         {
