@@ -6,6 +6,12 @@ namespace Poker.ConsoleApp.Classes
     {
         private List<Card> Hand = new List<Card>();
         private List<Chip> Chips = new List<Chip>();
+        public bool Folded { get; set; }
+
+        public Player()
+        {
+            this.Folded = false;
+        }
 
         public void AddCardToHand(Card card)
         {
@@ -37,6 +43,11 @@ namespace Poker.ConsoleApp.Classes
             }
 
             return total;
+        }
+
+        public void Fold()
+        {
+            this.Folded = true;
         }
     }
 }

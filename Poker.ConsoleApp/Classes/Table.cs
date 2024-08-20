@@ -59,5 +59,35 @@ namespace Poker.ConsoleApp.Classes
             Card card = this.Deck.DealCard();
             this.CommunityCards.Add(card);
         }
+
+        public List<Player> GetAllActivePlayers()
+        {
+            List<Player> activePlayers = new List<Player>();
+
+            foreach (Player player in this.Players)
+            {
+                if (player.Folded == false)
+                {
+                    activePlayers.Add(player);
+                }
+            }
+
+            return activePlayers;
+        }
+
+        public void DealToAllPlayers()
+        {
+            List<Player> activePlayers = this.GetAllActivePlayers();
+
+            foreach (Player player in activePlayers)
+            {
+                player.AddCardToHand(this.Deck.DealCard());
+            }
+        }
+
+        public void DealToPlayer(Player player)
+        {
+            player.AddCardToHand(this.Deck.DealCard());
+        }
     }
 }

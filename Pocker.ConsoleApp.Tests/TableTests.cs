@@ -103,5 +103,53 @@ namespace Pocker.ConsoleApp.Tests
             // Assert
             Assert.AreEqual(5, table.GetCommunityCards().Count);
         }
+
+        [TestMethod]
+        public void DealtCardsToAllActivePlayers()
+        {
+            // Arrange
+            Deck deck = new Deck();
+            deck.Fill();
+            Mock<ILogger> logger = new Mock<ILogger>();
+            Table table = new Table(deck, logger.Object);
+
+            Player player1 = new Player();
+            Player player2 = new Player();
+            Player player3 = new Player();
+            Player player4 = new Player();
+            table.AddPlayer(player1);
+            table.AddPlayer(player2);
+            table.AddPlayer(player3);
+            table.AddPlayer(player4);
+
+            // Act
+            table.DealToAllPlayers();
+
+            // Assert
+            Assert.AreEqual(48, deck.GetAllCards().Count);
+            Assert.AreEqual(player1.GetHand().Count, 1);
+            Assert.AreEqual(player2.GetHand().Count, 1);
+            Assert.AreEqual(player3.GetHand().Count, 1);
+            Assert.AreEqual(player4.GetHand().Count, 1);
+        }
+
+        [TestMethod]
+        public void DealCardToPlayer()
+        {
+            // Arrange
+            Deck deck = new Deck();
+            deck.Fill();
+            Mock<ILogger> logger = new Mock<ILogger>();
+            Table table = new Table(deck, logger.Object);
+
+            Player player1 = new Player();
+            table.AddPlayer(player1);
+
+            // Act
+            table.DealToPlayer(player1);
+
+            // Assert
+            Assert.AreEqual(51, deck.GetAllCards().Count);
+        }
     }
 }

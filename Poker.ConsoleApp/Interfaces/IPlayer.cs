@@ -8,5 +8,6 @@ namespace Poker.ConsoleApp.Interfaces
         public List<Card> GetHand();
         public void AddChip(Chip chip);
         public int GetTotalChipsValue();
+        public void Fold();
     }
 }
