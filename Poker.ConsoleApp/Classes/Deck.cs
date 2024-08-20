@@ -31,6 +31,13 @@ namespace Poker.ConsoleApp.Classes
             }
         }
 
+        public Card DealCard()
+        {
+            Card card = this.Cards[this.Cards.Count - 1];
+            this.Cards.Remove(card);
+            return card;
+        }
+
         public List<Card> GetAllCards()
         {
             return this.Cards;

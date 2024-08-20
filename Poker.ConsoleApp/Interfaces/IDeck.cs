@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Poker.ConsoleApp.Classes;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,5 +11,7 @@ namespace Poker.ConsoleApp.Interfaces
     {
         public void Fill();
         public void Shuffle();
+        public Card DealCard();
+        public List<Card> GetAllCards();
     }
 }

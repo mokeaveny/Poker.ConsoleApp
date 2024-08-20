@@ -65,5 +65,22 @@ namespace Pocker.ConsoleApp.Tests
             Assert.AreEqual(13, suitInstances[Suits.Spades]);
             Assert.AreEqual(13, suitInstances[Suits.Clubs]);
         }
+
+        [TestMethod]
+        public void DealCardOffTopOfDeck()
+        {
+            // Arrange
+            Deck deck = new Deck();
+
+            // Act
+            deck.Fill();
+            Card cardOnTopOfDeck = deck.GetAllCards()[51];
+            Card result = deck.DealCard();
+            int result2 = deck.GetAllCards().Count;
+
+            // Assert
+            Assert.AreEqual(cardOnTopOfDeck, result);
+            Assert.AreEqual(51, result2);
+        }
     }
 }
